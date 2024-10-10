@@ -1,0 +1,24 @@
+# 빌드 폴더
+build/
+
+# Qt 관련 자동 생성 파일
+*.pro.user
+*.qmake.stash
+
+# 빌드 시 생성되는 바이너리
+*.exe
+*.o
+*.obj
+
+# CMake 관련 파일
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+Makefile
+build/
+
+# Visual Studio 관련 파일
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
