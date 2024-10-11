@@ -10,7 +10,7 @@ void forceLightMode() {
     lightPalette.setColor(QPalette::Base, QColor(240, 240, 240));   // 입력 위젯의 배경색
     lightPalette.setColor(QPalette::Text, QColor(0, 0, 0));         // 입력 텍스트 색상
     lightPalette.setColor(QPalette::Button, QColor(240, 240, 240)); // 버튼 배경색
-    lightPalette.setColor(QPalette::ButtonText, QColor(0, 0, 0));   // 버튼 텍스트 색상
+    //lightPalette.setColor(QPalette::ButtonText, QColor(0, 0, 0));   // 버튼 텍스트 색상
 
     QApplication::setPalette(lightPalette);
 }
