@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
     QApplication a(argc, argv);
 
     // Fusion 스타일 사용
-    //a.setStyle(QStyleFactory::create("Fusion"));
+    a.setStyle(QStyleFactory::create("Fusion"));
 
     // 밝은 팔레트를 사용하여 라이트 모드 보장
     QPalette lightPalette;
