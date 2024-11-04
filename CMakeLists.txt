@@ -9,7 +9,7 @@ set(CMAKE_AUTORCC ON)
 if(WIN32)
     set(CMAKE_PREFIX_PATH "C:/Qt/6.5.3/mingw_64")
 else()
-    set(CMAKE_PREFIX_PATH "/usr/lib/qt6") # 라즈비안의 일반적인 Qt6 설치 경로
+    set(CMAKE_PREFIX_PATH "/usr/lib/aarch64-linux-gnu") # 라즈비안의 일반적인 Qt6 설치 경로
 endif()
 
 set(CMAKE_CXX_STANDARD 17)
