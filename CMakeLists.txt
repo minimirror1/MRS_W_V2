@@ -6,7 +6,11 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-set(CMAKE_PREFIX_PATH "C:/Qt/6.5.3/mingw_64")
+if(WIN32)
+    set(CMAKE_PREFIX_PATH "C:/Qt/6.5.3/mingw_64")
+else()
+    set(CMAKE_PREFIX_PATH "/usr/lib/qt6") # 라즈비안의 일반적인 Qt6 설치 경로
+endif()
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
