@@ -28,7 +28,7 @@ private:
     void createStatusBar();
     void createMenus(); // 메뉴 생성을 위한 함수 선언
     void createFixedToolWidget(); // 고정된 도구 버튼 위젯 생성 함수 선언
-
+    void openSettingsDialog(); // 설정 다이얼로그 열기 함수 선언
     QWidget *mainToolWidget; // 메인 메뉴 도구 버튼들이 있는 고정된 위젯
 };
 

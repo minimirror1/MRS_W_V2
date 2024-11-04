@@ -15,6 +15,9 @@
 #include <QListWidget>
 #include <QTimer>
 
+#include "settings.h"
+#include "firmwareupdate.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -34,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //상태표시줄 생성
     createStatusBar();
+
 }
 
 MainWindow::~MainWindow()
@@ -215,6 +219,11 @@ void MainWindow::createMenus() {
     QAction *updateFirmwareAction = new QAction(QIcon(":/icons/update_firmware.png"), "펌웨어 업데이트", this);
     updateFirmwareAction->setShortcut(Qt::Key_F8);
     toolsMenu->addAction(updateFirmwareAction);
+    connect(updateFirmwareAction, &QAction::triggered, this, [this]() {
+        FirmwareUpdate *dialog = new FirmwareUpdate(this);
+        dialog->exec();
+    });
+
 
     QAction *updateAllFirmwareAction = new QAction(QIcon(":/icons/update_all.png"), "펌웨어 전체 업데이트", this);
     toolsMenu->addAction(updateAllFirmwareAction);
@@ -250,6 +259,7 @@ void MainWindow::createMenus() {
     // 신호 연결 예시
     connect(searchAction, &QAction::triggered, this, &MainWindow::openAddDeviceDialog);
     connect(exitAction, &QAction::triggered, this, &MainWindow::close);
+    connect(settingsAction, &QAction::triggered, this, &MainWindow::openSettingsDialog);
 }
 
 // 고정된 도구 버튼 위젯 생성 함수의 구현
@@ -353,4 +363,9 @@ void MainWindow::toggleMainMenuVisibility(bool visible) {
     if (mainToolWidget) {
         mainToolWidget->setVisible(visible);
     }
+}
+
+void MainWindow::openSettingsDialog() {
+    Settings *settingsDialog = new Settings(this);
+    settingsDialog->exec();
 }

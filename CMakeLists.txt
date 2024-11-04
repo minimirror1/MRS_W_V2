@@ -6,11 +6,13 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+set(CMAKE_PREFIX_PATH "C:/Qt/6.5.3/mingw_64")
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets SerialPort Quick QuickControls2)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets SerialPort Quick QuickControls2)
 
 # 프로젝트 소스 및 리소스 파일 설정
 set(PROJECT_SOURCES
@@ -18,6 +20,10 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        settings.cpp
+        settings.h
+        firmwareupdate.cpp
+        firmwareupdate.h
         resources.qrc # 리소스 파일을 소스에 추가
 )
 
@@ -40,7 +46,12 @@ else()
 endif()
 
 # Qt 위젯 라이브러리와 링크
-target_link_libraries(gui_v2 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(gui_v2 PRIVATE 
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::SerialPort
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::QuickControls2
+)
 
 # macOS 및 Windows 번들 관련 설정
 if(${QT_VERSION} VERSION_LESS 6.1.0)
@@ -66,3 +77,4 @@ install(TARGETS gui_v2
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(gui_v2)
 endif()
+

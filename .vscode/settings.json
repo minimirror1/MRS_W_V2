@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "qhboxlayout": "cpp",
+        "qvboxlayout": "cpp",
+        "qgridlayout": "cpp",
+        "qserialportinfo": "cpp",
+        "qslider": "cpp",
+        "qserialport": "cpp",
+        "qdialog": "cpp"
+    }
+}
