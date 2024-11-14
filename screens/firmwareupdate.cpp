@@ -61,6 +61,13 @@ void FirmwareUpdate::setupUI()
             QApplication::processEvents();
         }
     });
+
+    // 전체 선택 버튼 연결
+    connect(selectAllButton, &QPushButton::clicked, this, [this]() {
+        for (QCheckBox* checkbox : checkBoxes) {
+            checkbox->setChecked(true);
+        }
+    });
 }
 
 void FirmwareUpdate::createTable()

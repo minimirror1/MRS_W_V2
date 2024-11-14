@@ -9,7 +9,11 @@ set(CMAKE_AUTORCC ON)
 if(WIN32)
     set(CMAKE_PREFIX_PATH "C:/Qt/6.5.3/mingw_64")
 else()
-    set(CMAKE_PREFIX_PATH "/usr/lib/aarch64-linux-gnu") # 라즈비안의 일반적인 Qt6 설치 경로
+    if(CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64")
+        set(CMAKE_PREFIX_PATH "/usr/lib/aarch64-linux-gnu") # 라즈비안의 일반적인 Qt6 설치 경로
+    elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "arm")
+        set(CMAKE_PREFIX_PATH "/usr/lib/arm-linux-gnueabihf")
+    endif()
 endif()
 
 set(CMAKE_CXX_STANDARD 17)
@@ -24,10 +28,10 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        settings.cpp
-        settings.h
-        firmwareupdate.cpp
-        firmwareupdate.h
+        screens/settings.cpp
+        screens/settings.h
+        screens/firmwareupdate.cpp
+        screens/firmwareupdate.h
         resources.qrc # 리소스 파일을 소스에 추가
 )
 

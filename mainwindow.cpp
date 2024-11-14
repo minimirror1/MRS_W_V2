@@ -15,8 +15,8 @@
 #include <QListWidget>
 #include <QTimer>
 
-#include "settings.h"
-#include "firmwareupdate.h"
+#include "screens/settings.h"
+#include "screens/firmwareupdate.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
